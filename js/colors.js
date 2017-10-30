@@ -78,13 +78,11 @@ function drawGauge (name) {
 	_ctx.fillText("192", xOffset + 15, yOffset + 67);
 
 	// Extra notches
-	// 224
 	_ctx.beginPath();
 	_ctx.moveTo(xOffset + 1, yOffset + 32);
 	_ctx.lineTo(xOffset + 5, yOffset + 32);
 	_ctx.stroke();
 
-	// 32
 	_ctx.beginPath();
 	_ctx.moveTo(xOffset + 1, yOffset + 96);
 	_ctx.lineTo(xOffset + 5, yOffset + 96);
@@ -161,6 +159,9 @@ function nextFrame () {
 	_ctx.closePath();
 	_ctx.fill();
 
+	_ctx.font = "16px Courier New";
+	_ctx.fillText("Δ:±" + Math.abs(_color.rV), X_OFFSET - 10, Y_OFFSET + 310);
+
 	// Mark the color's GREEN value on the GREEN gauge
 	_xCoord = X_OFFSET + GAUGE_SEPARATION - 5;
 	_yCoord = Y_OFFSET + MAX_COLOR_VALUE - _color.g;
@@ -172,6 +173,8 @@ function nextFrame () {
 	_ctx.closePath();
 	_ctx.fill();
 
+	_ctx.fillText("Δ:±" + Math.abs(_color.gV), X_OFFSET + GAUGE_SEPARATION - 10, Y_OFFSET + 310);
+
 	// Mark the color's BLUE value on the BLUE gauge
 	_xCoord = X_OFFSET + ( 2 * GAUGE_SEPARATION ) - 5;
 	_yCoord = Y_OFFSET + MAX_COLOR_VALUE - _color.b;
@@ -182,6 +185,8 @@ function nextFrame () {
 	_ctx.lineTo(_xCoord - ARROW_WIDTH, _yCoord + ARROW_HEIGHT);
 	_ctx.closePath();
 	_ctx.fill();
+
+	_ctx.fillText("Δ:±" + Math.abs(_color.bV), X_OFFSET + (2 * GAUGE_SEPARATION) - 10, Y_OFFSET + 310);
 
 	_color.next();
 }
@@ -253,13 +258,8 @@ function Color (config) {
 				this.bV = -this.bV;
 			}
 		}
-
-		if (this.fade) {
-			this.a -= 0.01;
-		}
 	}
 }
-
 
 // Kick off the animation loop
 window.requestAnimationFrame(run);
