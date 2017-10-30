@@ -4,6 +4,11 @@ body {
 	font-family: sans-serif;
 }
 
+.container {
+	width: 800px;
+	margin: 0 auto;
+}
+
 h1 {
 	color: #ddd;
 	margin: 5px 0;
@@ -19,7 +24,13 @@ p {
 	color: #aaa;
 	margin: 40px 0;
 	font-size: 1.0em;
-	line-height: 1.25em;
+	line-height: 1.5em;
+}
+
+b {
+	font-family: monospace;
+	font-size: 1.2em;
+	font-weight: bold;
 }
 
 a {

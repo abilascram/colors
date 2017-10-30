@@ -1,7 +1,3 @@
-# colors
+# Colors
 
-A study on color randomization.
-
-TO-DO:
-- Add the current value to each color.
-- Center the canvas with a minimum width.
+A study on color randomization with a visual display to highlight the functionality.
